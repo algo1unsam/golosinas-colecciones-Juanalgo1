@@ -149,7 +149,7 @@ object naranja{
     method pastillaSiguiente() = frutilla
 }
 object vainilla{}
-/*
+
 object mariano {
     const golosinas_compradas = []
     method comprar(golosina){ golosinas_compradas.add(golosina)} 
@@ -157,10 +157,12 @@ object mariano {
     method probarGolosinas(){ golosinas_compradas.forEach{golosina => golosina.darMordisco()}}
     method hayGolosinaSinTACC() = golosinas_compradas.any({golosina => !golosina.contieneGluten()})
     method preciosCuidados() = golosinas_compradas.all({golosina => golosina.precio() <= 10})
-* `golosinaDeSabor(unSabor)` : devuelve _la primer golosina_ que encuentra en la bolsa del sabor escogido.
-* `golosinasDeSabor(unSabor)` : devuelve _las golosinas_ que encuentre dentro de la bolsa del sabor escogido.
-* `sabores()` : que devuelve los sabores de las golosinas de la bolsa, idealmente sin repetidos. <br> 
-  P.ej. aunque Mariano tenga tres golosinas de sabor naranja, en lo que devuelve `sabores()` el naranja debería aparecer una sola vez. <br> Una forma de resolver esto es usando **conjuntos**; revolver en el apunte sobre colecciones y closures: [https://objetos1wollokunq.gitlab.io/material/guia-colecciones-basicas.pdf](https://objetos1wollokunq.gitlab.io/material/guia-colecciones-basicas.pdf).
-* `golosinaMasCara()` : devuelve la golosina mas cara en la bolsa de golosinas compradas.
-* `pesoGolosinas()` : devuelve el peso de la bolsa de golosinas compradas, o sea, la suma del peso de cada golosina. 
-}*/
+    method golosinaDeSabor(sabor) = golosinas_compradas.find{golosina => golosina.sabor() == sabor}
+    method golosinasDeSabor(sabor) = golosinas_compradas.filter({golosina => golosina.sabor() == sabor})
+    method sabores() = golosinas_compradas.map{golosina => golosina.sabor()}.asSet()
+    method golosinaMasCara() = golosinas_compradas.max{golosina => golosina.precio()} 
+    method pesoGolosinas() = golosinas_compradas.sum{golosina => golosina.peso()}
+
+    method golosinasFaltantes(golosinas_deseadas) = golosinas_deseadas.filter({golosina => !golosinas_compradas.contains(golosina)})
+    method gustosFaltantes(gustos_deseados) = gustos_deseados.filter({gusto => !self.sabores().contains(gusto)})
+}

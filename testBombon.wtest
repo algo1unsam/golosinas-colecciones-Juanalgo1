@@ -171,3 +171,8 @@ describe "Pruebas golosinas parte 1" {
         assert.equals(banada.peso(), 5.67)
     }
 }
+
+describe "Pruebas golosinas parte 2"{
+    test "Compras varias"{
+    }
+}
