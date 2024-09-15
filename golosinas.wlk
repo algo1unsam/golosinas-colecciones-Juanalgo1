@@ -150,6 +150,8 @@ object naranja{
 }
 object vainilla{}
 
+object melon{}
+
 object mariano {
     const golosinas_compradas = []
     method comprar(golosina){ golosinas_compradas.add(golosina)} 

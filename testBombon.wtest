@@ -174,5 +174,12 @@ describe "Pruebas golosinas parte 1" {
 
 describe "Pruebas golosinas parte 2"{
     test "Compras varias"{
+        mariano.comprar(chocolatin)
+        mariano.comprar(caramelo)
+        mariano.comprar(bombon)
+
+        assert.equals(mariano.golosinasFaltantes(#{alfajor, bombon, chocolatin, chupetin}), #{alfajor, chupetin})
+        assert.equals(mariano.gustosFaltantes(#{melon, chocolate, frutilla , vainilla}), #{melon, vainilla})
     }
 }
+
