@@ -173,7 +173,7 @@ describe "Pruebas golosinas parte 1" {
 }
 
 describe "Pruebas golosinas parte 2"{
-    test "Compras varias"{
+    test "Compras varias"{  //Perdón pero no voy a testear cada método con cada golosina, créanme que lo hice por consola al implementarlos.
         mariano.comprar(chocolatin)
         mariano.comprar(caramelo)
         mariano.comprar(bombon)
