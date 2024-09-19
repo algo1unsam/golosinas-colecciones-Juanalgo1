@@ -29,15 +29,21 @@ class Alfajor inherits Golosina(precio = 12, sabor = chocolate, peso = 300, glut
 }
 
 class Caramelo inherits Golosina(precio = 1, peso = 5, gluten = false){
-    override method darMordisco() {
-        peso -= 1
-    }
-/* VER EN CLASE
-    method sabor(gusto){
-        if (!gusto.saborCarameloValido()){
-            throw Exception
+    override method darMordisco() {  
+         if (!sabor.saborCarameloValido()){
+            throw new UserException(message = "Sabor de caramelo inválido")
+        } else {
+            peso -= 1
         }
-    }    */
+    }
+
+    override method sabor(){
+        if (!sabor.saborCarameloValido()){
+            throw new UserException(message = "Sabor de caramelo inválido")
+        } else {
+            return sabor
+        }
+    }  
 }
 
 class CarameloRelleno inherits Caramelo() {
@@ -184,6 +190,8 @@ object mariano {
     method gustosFaltantes(gustos_deseados) = gustos_deseados.filter({gusto => !self.sabores().contains(gusto)})
 
     method baniar(golosina){
-        if 
+        //VER EN CLASE
     }
 }
+
+class UserException inherits Exception {}

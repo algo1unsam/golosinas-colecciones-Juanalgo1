@@ -20,16 +20,16 @@ describe "Pruebas parte 4"{
         oblea.darMordisco()
         assert.equals(oblea.peso(), 46.875)
 
-        var oblea = new ObleaCrujiente()
-        assert.equals(oblea.peso(), 250)
-        oblea.darMordisco()
-        assert.equals(oblea.peso(), 122)
-        oblea.darMordisco()
-        assert.equals(oblea.peso(), 58)
-        oblea.darMordisco()
-        assert.equals(oblea.peso(), 40.5)
-        oblea.darMordisco()
-        assert.equals(oblea.peso(), 30.375)
+        var obleaCrujiente = new ObleaCrujiente()
+        assert.equals(obleaCrujiente.peso(), 250)
+        obleaCrujiente.darMordisco()
+        assert.equals(obleaCrujiente.peso(), 122)
+        obleaCrujiente.darMordisco()
+        assert.equals(obleaCrujiente.peso(), 58)
+        obleaCrujiente.darMordisco()
+        assert.equals(obleaCrujiente.peso(), 40.5)
+        obleaCrujiente.darMordisco()
+        assert.equals(obleaCrujiente.peso(), 30.375)
     }
 
     test "Chocolatines VIP"{
@@ -72,5 +72,8 @@ describe "Tests de Mariano"{
         mariano.probarGolosinas()
         assert.that(mariano.hayGolosinaSinTACC())
         assert.equals(mariano.golosinasDeSabor(chocolate), [chocolatin1, chocolatin2, pastilla])
+        assert.equals(mariano.golosinasDeSabor(frutilla), [bombon1, bombon2])
+        assert.equals(mariano.golosinasDeSabor(chocolate), [chocolatin1, chocolatin2, pastilla])
+       
     }
 }
