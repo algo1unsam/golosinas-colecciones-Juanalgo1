@@ -1,0 +1,79 @@
+import golosinasComoClases.*
+describe "Pruebas parte 4"{
+    test "Bombones duros"{
+        var bombon = new Bombon()
+        assert.equals(bombon.peso(), 15)
+        bombon.darMordisco()
+        assert.equals(bombon.peso(), 11)
+        var bombon_duro = new BombonDuro()
+        assert.equals(bombon_duro.peso(), 15)
+        bombon_duro.darMordisco()
+        assert.equals(bombon_duro.peso(), 13.5)
+    }
+    test "Obleas crujientes"{
+        var oblea = new Oblea()
+        assert.equals(oblea.peso(), 250)
+        oblea.darMordisco()
+        assert.equals(oblea.peso(), 125)
+        oblea.darMordisco()
+        assert.equals(oblea.peso(), 62.5)
+        oblea.darMordisco()
+        assert.equals(oblea.peso(), 46.875)
+
+        var obleaCrujiente = new ObleaCrujiente()
+        assert.equals(obleaCrujiente.peso(), 250)
+        obleaCrujiente.darMordisco()
+        assert.equals(obleaCrujiente.peso(), 122)
+        obleaCrujiente.darMordisco()
+        assert.equals(obleaCrujiente.peso(), 58)
+        obleaCrujiente.darMordisco()
+        assert.equals(obleaCrujiente.peso(), 40.5)
+        obleaCrujiente.darMordisco()
+        assert.equals(obleaCrujiente.peso(), 30.375)
+    }
+
+    test "Chocolatines VIP"{
+        var chocolate = new Chocolatin(peso = 50)
+        chocolate.darMordisco()
+        assert.equals(chocolate.peso(), 48)
+        var chocolate_vip = new ChocolatinVip(peso = 50, humedad = 0.5)
+        chocolate_vip.darMordisco()
+        assert.equals(chocolate_vip.peso(), 72)
+    }
+
+    test "Chocolatines Premium"{
+        var chocolate = new Chocolatin(peso = 50)
+        chocolate.darMordisco()
+        assert.equals(chocolate.peso(), 48)
+        var chocolate_premium = new ChocolatinPremium(peso = 50, humedad = 0.5)
+        chocolate_premium.darMordisco()
+        assert.equals(chocolate_premium.peso(), 36)
+    }
+}
+
+describe "Tests de Mariano"{
+    test "Compras"{
+        var bombon1 = new Bombon()
+        var bombon2 = new Bombon()
+        var chocolatin1 = new Chocolatin(peso = 50)
+        var chocolatin2 = new Chocolatin(peso = 10)
+        var chupetin1 = new Chupetin()
+        var chupetin2 = new Chupetin()
+        var pastilla = new Pastilla(gluten = true)
+
+        mariano.comprar(bombon1)
+        mariano.comprar(bombon2)
+        mariano.comprar(chocolatin1)
+        mariano.comprar(chocolatin2)
+        mariano.comprar(chupetin1)
+        mariano.comprar(chupetin2)
+        mariano.comprar(pastilla)
+
+        mariano.probarGolosinas()
+        assert.that(mariano.hayGolosinaSinTACC())
+        assert.equals(mariano.golosinasDeSabor(chocolate), [chocolatin1, chocolatin2, pastilla])
+        assert.equals(mariano.golosinasDeSabor(frutilla), [bombon1, bombon2])
+        assert.equals(mariano.golosinasDeSabor(chocolate), [chocolatin1, chocolatin2, pastilla])
+       
+    }
+}

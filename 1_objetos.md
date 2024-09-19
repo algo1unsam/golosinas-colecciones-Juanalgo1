@@ -67,5 +67,3 @@ Lograr que a Mariano se le pueda preguntar `golosinasFaltantes(golosinasDeseadas
 * A veces Juliana tiene antojos por gustos gustos especiales. <br> 
 Lograr que a Mariano se le pueda preguntar `gustosFaltantes(gustosDeseados)`, que es una consulta similar a la anterior, pero donde `gustosDeseados`  es una colección de _gustos_. <br>
 Debe devolver los gustos que están entre los `gustosDeseados`, y que no están cubiertos por ninguna golosina de las que tiene Mariano.
-
-
